@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Define dark theme specific colors here.
+         These will override the light theme colors when dark mode is active.
+         Ensure all colors used in md_theme_dark_... are defined here. -->
+
+    <color name="md_theme_dark_primary">#92CCFF</color>
+    <color name="md_theme_dark_onPrimary">#003353</color>
+    <color name="md_theme_dark_primaryContainer">#004A76</color>
+    <color name="md_theme_dark_onPrimaryContainer">#CCE5FF</color>
+
+    <color name="md_theme_dark_secondary">#60DDAB</color>
+    <color name="md_theme_dark_onSecondary">#003827</color>
+    <color name="md_theme_dark_secondaryContainer">#005139</color>
+    <color name="md_theme_dark_onSecondaryContainer">#7CFAC4</color>
+
+    <color name="md_theme_dark_tertiary">#F4B8C6</color>
+    <color name="md_theme_dark_onTertiary">#492532</color>
+    <color name="md_theme_dark_tertiaryContainer">#633B48</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFD9E2</color>
+
+    <color name="md_theme_dark_error">#FFB4AB</color>
+    <color name="md_theme_dark_onError">#690005</color>
+    <color name="md_theme_dark_errorContainer">#93000A</color>
+    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+
+    <color name="md_theme_dark_background">#001F2A</color>
+    <color name="md_theme_dark_onBackground">#E1F4FF</color>
+    <color name="md_theme_dark_surface">#001F2A</color>
+    <color name="md_theme_dark_onSurface">#E1F4FF</color>
+    <color name="md_theme_dark_surfaceVariant">#42474E</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C2C7CE</color>
+    <color name="md_theme_dark_outline">#8C9199</color>
+    <color name="md_theme_dark_inverseOnSurface">#001F2A</color>
+    <color name="md_theme_dark_inverseSurface">#E1F4FF</color>
+    <color name="md_theme_dark_inversePrimary">#00639A</color>
+    <color name="md_theme_dark_shadow">#000000</color>
+    <color name="md_theme_dark_surfaceTintColor">#92CCFF</color>
+    <color name="md_theme_dark_outlineVariant">#42474E</color>
+    <color name="md_theme_dark_scrim">#000000</color>
+
+    <!-- New Surface Container Colors for Dark Theme -->
+    <color name="md_theme_dark_surfaceContainerLow">#173142</color>
+    <color name="md_theme_dark_surfaceContainer">#203B4C</color>
+
+</resources>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    tools:context=".ui.attendance.AttendanceAnalyticsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attendance Analytics"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:textColor="?attr/colorOnSurface"/>
+
+        <!-- Grid Layout for Period Selection Radio Group AND Semester Spinner -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="1"
+            android:columnCount="4"
+            android:alignmentMode="alignBounds"
+            android:columnOrderPreserved="true"
+            android:layout_marginBottom="8dp">
+
+            <!-- Radio Group for Day/Month/Year (Spans 3 columns) -->
+            <RadioGroup
+                android:id="@+id/radio_group_period_selection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="3"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="fill_horizontal"
+                android:layout_columnSpan="3"> <!-- Span 3 columns -->
+
+                <RadioButton
+                    android:id="@+id/radio_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Day"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:buttonTint="?attr/colorPrimary"/>
+
+                <RadioButton
+                    android:id="@+id/radio_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Month"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:buttonTint="?attr/colorPrimary"/>
+
+                <RadioButton
+                    android:id="@+id/radio_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Year"
+                    android:textColor="?attr/colorOnSurface"
+                    android:buttonTint="?attr/colorPrimary"/>
+            </RadioGroup>
+
+            <!-- Spinner for Semester Selection (Last column) -->
+            <Spinner
+                android:id="@+id/spinner_semester_analytics"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/spinner_background"
+                android:padding="12dp"
+                android:layout_gravity="fill_horizontal"
+                android:overlapAnchor="false"
+                android:dropDownVerticalOffset="?attr/actionBarSize"/>
+
+        </GridLayout>
+
+        <!-- Period Navigation Buttons and Display -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/button_prev_period"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Previous Period"
+                app:tint="?attr/colorPrimary"/>
+
+            <!-- Changed TextView to Button for date selection -->
+            <Button
+                android:id="@+id/button_select_period_date"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="For: Day Month Year"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:layout_marginHorizontal="8dp"
+                app:strokeColor="?attr/colorOutline"
+                app:cornerRadius="8dp" />
+
+            <ImageButton
+                android:id="@+id/button_next_period"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_arrow_forward"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Next Period"
+                app:tint="?attr/colorPrimary"/>
+        </LinearLayout>
+
+
+        <!-- Overall Analytics Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Overall Analytics"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/total_students_analytics_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Students: 0"
+                    android:textSize="18sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/total_recorded_days_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Recorded Attendance Days: 0"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:id="@+id/total_present_days_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Present Days: 0"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="2dp"/>
+
+                <TextView
+                    android:id="@+id/total_absent_days_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Absent Days: 0"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Pie Chart for Attendance Breakdown -->
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/attendance_pie_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Top/Bottom Students Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="?attr/colorSurface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Performance Overview"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top/Bottom Attendance:"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="8dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/top_bottom_students_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_top_bottom_student" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
